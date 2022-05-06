@@ -6,5 +6,7 @@ public class App {
         Date fecha = new Date();
         SimpleDateFormat df = new SimpleDateFormat("dd 'de' MMMM, yyyy");
         System.out.println(df.format(fecha));
+
+        System.out.println("Hola")
     }
 }
