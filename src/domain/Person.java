@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Date;
 import java.util.Scanner;
 
 public abstract class Person {
@@ -7,24 +8,25 @@ public abstract class Person {
     protected String address;
     protected String phone;
     protected String email;
-    protected String birthDate;
+    protected Date birthDate;
     protected String curp;
     // Constructor's
     public Person(){
 
     }
 
-    public Person(String fullName, String address, String phone, String email, String birthDate, String curp) {
+    public Person(String fullName, String address, String phone, String email, String curp) {
         this.fullName = fullName;
         this.address = address;
         this.phone = phone;
         this.email = email;
-        this.birthDate = birthDate;
+        this.birthDate = captureBirthDate();
         this.curp = curp;
     }
     
     // Abstract methods
     protected abstract String genUsername();
+    protected abstract String genPassword();
 
     // Show the people information
     protected void show() {
@@ -47,10 +49,23 @@ public abstract class Person {
         phone = sc.nextLine();
         System.out.println("Enter the email: ");
         email = sc.nextLine();
-        System.out.println("Enter the birth date: ");
-        birthDate = sc.nextLine();
+        birthDate = captureBirthDate();
         System.out.println("Enter the CURP: ");
         curp = sc.nextLine();
+        sc.close();
+    }
+
+    public Date captureBirthDate() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the birth date");
+        System.out.println("Enter the day: ");
+        int day = sc.nextInt();
+        System.out.println("Enter the month: ");
+        int month = sc.nextInt();
+        System.out.println("Enter the year: ");
+        int year = sc.nextInt();
+        sc.close();
+        return new Date(year - 1900, month - 1, day);
     }
 
     // Getters and setters
@@ -86,11 +101,11 @@ public abstract class Person {
         this.email = email;
     }
 
-    public String getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 

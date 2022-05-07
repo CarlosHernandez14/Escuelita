@@ -17,10 +17,11 @@ public class Student  extends Person {
         // Generate a random number for the student's numControl of 8 digits
         this.numControl = genNumControl();
     }
-    public Student(String name, String address, String phone, String email, String career, int semester, double grade, boolean status, String birthDate, String curp) {
-        super(name, address, phone, email, birthDate, curp);
+    public Student(String name, String address, String phone, String email, String career, int semester, double grade, boolean status, String curp) {
+        super(name, address, phone, email, curp);
         this.numControl = genNumControl();
         this.userName = genUsername();
+        this.password = genPassword();
         this.career = career;
         this.semester = semester;
         this.grade = grade;
@@ -68,6 +69,13 @@ public class Student  extends Person {
         String[] splitN = fullName.split(" ");
         String username = splitN[0].substring(0, 3) + this.numControl;
         return username;
+    }
+
+    // Generate a password for the student
+    @Override
+    public String genPassword() {
+        String password = this.numControl + this.fullName.substring(0, 3);
+        return password;
     }
 
     // Getters and setters
