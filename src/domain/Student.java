@@ -1,10 +1,11 @@
 package domain;
-
 import java.util.*;
 import java.text.SimpleDateFormat; 
 
 public class Student  extends Person {
     private final String numControl;
+    private String userName;
+    private String password;
     private String career;
     private int semester;
     private double grade;
@@ -19,6 +20,7 @@ public class Student  extends Person {
     public Student(String name, String address, String phone, String email, String career, int semester, double grade, boolean status, String birthDate, String curp) {
         super(name, address, phone, email, birthDate, curp);
         this.numControl = genNumControl();
+        this.userName = genUsername();
         this.career = career;
         this.semester = semester;
         this.grade = grade;
@@ -40,22 +42,32 @@ public class Student  extends Person {
     @Override
     public void capture(){
         super.capture();
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the career: ");
-        career = sc.nextLine();
-        System.out.println("Enter the semester: ");
-        semester = sc.nextInt();
-        System.out.println("Enter the grade: ");
-        grade = sc.nextDouble();
-        System.out.println("Enter the status: ");
-        status = sc.nextBoolean();
+        try (Scanner sc = new Scanner(System.in)) {
+			System.out.println("Enter the career: ");
+			career = sc.nextLine();
+			System.out.println("Enter the semester: ");
+			semester = sc.nextInt();
+			System.out.println("Enter the grade: ");
+			grade = sc.nextDouble();
+			System.out.println("Enter the status: ");
+			status = sc.nextBoolean();
+		}
     }
-
+    
     // Generate a random number for the student's numControl of 8 digits
     private String genNumControl() {
         Date date = new Date();
         SimpleDateFormat df = new SimpleDateFormat("yyyy");
         return (df.format(date)) + String.valueOf(Math.random()).substring(2, 5);
+    }
+
+    // Generate a username for the student
+    @Override
+    public String genUsername() {
+        String fullName = this.fullName.toLowerCase();
+        String[] splitN = fullName.split(" ");
+        String username = splitN[0].substring(0, 3) + this.numControl;
+        return username;
     }
 
     // Getters and setters

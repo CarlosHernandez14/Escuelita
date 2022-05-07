@@ -2,31 +2,33 @@ package domain;
 
 import java.util.Scanner;
 
-public class Person {
-    private String name;
-    private String address;
-    private String phone;
-    private String email;
-    private String birthDate;
-    private String curp;
-
+public abstract class Person {
+    protected String fullName;
+    protected String address;
+    protected String phone;
+    protected String email;
+    protected String birthDate;
+    protected String curp;
     // Constructor's
     public Person(){
 
     }
 
-    public Person(String name, String address, String phone, String email, String birthDate, String curp) {
-        this.name = name;
+    public Person(String fullName, String address, String phone, String email, String birthDate, String curp) {
+        this.fullName = fullName;
         this.address = address;
         this.phone = phone;
         this.email = email;
         this.birthDate = birthDate;
         this.curp = curp;
     }
+    
+    // Abstract methods
+    protected abstract String genUsername();
 
     // Show the people information
-    public void show() {
-        System.out.println("Name: " + name);
+    protected void show() {
+        System.out.println("fullName: " + fullName);
         System.out.println("Address: " + address);
         System.out.println("Phone: " + phone);
         System.out.println("Email: " + email);
@@ -35,10 +37,10 @@ public class Person {
     }
 
     // Capture the people information
-    public void capture() {
+    protected void capture() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the name: ");
-        name = sc.nextLine();
+        System.out.println("Enter the fullName: ");
+        fullName = sc.nextLine();
         System.out.println("Enter the address: ");
         address = sc.nextLine();
         System.out.println("Enter the phone: ");
@@ -52,12 +54,12 @@ public class Person {
     }
 
     // Getters and setters
-    public String getName() {
-        return name;
+    public String getfullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setfullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getAddress() {
