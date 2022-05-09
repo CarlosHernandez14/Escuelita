@@ -6,7 +6,7 @@ import domain.Student;
 import java.text.SimpleDateFormat;
 public class App {
     public static void main(String[] args) throws Exception {
-        Scanner read = new Scanner(System.in);1
+        Scanner read = new Scanner(System.in);
         Date fecha = new Date();
         SimpleDateFormat df = new SimpleDateFormat("dd 'de' MMMM, yyyy");
         System.out.println(df.format(fecha));
@@ -40,7 +40,7 @@ public class App {
                     
                     break;
                 case 31:
-                    opcion2 = mostrarMenu2();
+                    opcion2 = mostrarMenu();
                     switch(opcion2){
                         case 1:
                             
@@ -51,7 +51,7 @@ public class App {
                     }
                     break;
                 case 32:
-                    opcion3 = mostrarMenu3();
+                    opcion3 = mostrarMenu();
                     switch(opcion3){
                         case 1:
                             
@@ -81,7 +81,7 @@ public class App {
         } while (opcion > 0);
     }
 
-    public static int mostrarMenu3() {
+    public static int mostrarMenu() {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
         System.out.println();
