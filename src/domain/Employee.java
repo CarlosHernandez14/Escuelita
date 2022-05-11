@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class Employee extends Person {
-    private final String ein;
+    private String ein;
     private String department;
     private String position;
     private String salary;
@@ -13,7 +13,6 @@ public class Employee extends Person {
 
     // Constructor
     public Employee() {
-        this.ein = genEin();
     }
 
     public Employee(String name, String address, String phone, String email, String ein, String department, String position, String salary, String status, String curp, String rfc) {
