@@ -55,12 +55,12 @@ public class Employee extends Person {
     
     // Generates the username and password
     @Override
-    protected String genUsername() {
+    public String genUsername() {
         return this.fullName.toLowerCase().substring(0,2) + this.ein;
     }
 
     @Override
-    protected String genPassword() {
+    public String genPassword() {
         return this.ein + this.department.substring(0,3);
     }
 
