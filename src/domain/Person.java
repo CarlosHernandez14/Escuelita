@@ -23,7 +23,7 @@ public abstract class Person {
         this.birthDate = captureBirthDate();
         this.curp = curp;
     }
-    
+
     // Abstract methods
     protected abstract String genUsername();
     protected abstract String genPassword();
@@ -41,16 +41,16 @@ public abstract class Person {
     // Capture the people information
     protected void capture() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the fullName: ");
+        System.out.print("Enter the fullName: ");
         fullName = sc.nextLine();
-        System.out.println("Enter the address: ");
+        System.out.print("Enter the address: ");
         address = sc.nextLine();
-        System.out.println("Enter the phone: ");
+        System.out.print("Enter the phone: ");
         phone = sc.nextLine();
-        System.out.println("Enter the email: ");
+        System.out.print("Enter the email: ");
         email = sc.nextLine();
         birthDate = captureBirthDate();
-        System.out.println("Enter the CURP: ");
+        System.out.print("Enter the CURP: ");
         curp = sc.nextLine();
         sc.close();
     }
@@ -58,11 +58,11 @@ public abstract class Person {
     public Date captureBirthDate() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the birth date");
-        System.out.println("Enter the day: ");
+        System.out.print("Enter the day: ");
         int day = sc.nextInt();
-        System.out.println("Enter the month: ");
+        System.out.print("Enter the month: ");
         int month = sc.nextInt();
-        System.out.println("Enter the year: ");
+        System.out.print("Enter the year: ");
         int year = sc.nextInt();
         sc.close();
         return new Date(year - 1900, month - 1, day);

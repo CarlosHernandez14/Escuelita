@@ -38,7 +38,7 @@ public class Course {
                         System.out.println(j + ".- " + prospectProfessors.get(j).getfullName());
                     }
                     System.out.println("Select a professor: ");
-                    int pSelected = Integer.parseInt(sc.nextLine());                   
+                    int pSelected = Integer.parseInt(sc.nextLine());
                     Professor p = prospectProfessors.get(pSelected);
                     if (p != null) {
                         currentProfessors.get(sname)[i++] = p;
@@ -64,7 +64,7 @@ public class Course {
         for (int i = 0; i < subjects.size(); i++) {
             currentProfessors.put(subjects.get(i), new Professor[3]); // Agrega las materias como keys, y un arrray de 3 profesores como value
         }
-        
+
     }
 
     public Professor getSingleProfessor(String pname) {
@@ -106,7 +106,7 @@ public class Course {
         Scanner sc = new Scanner(System.in);
         System.out.println("ENTER THE SUBJECTS COURSE - Type 'end' to finish");
         do {
-            System.out.println("Enter the subject: ");
+            System.out.print("Enter the subject: ");
             String subject = sc.nextLine();
             if (subject.equalsIgnoreCase("end"))
                 end = true;

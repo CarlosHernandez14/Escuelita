@@ -40,19 +40,19 @@ public class Employee extends Person {
     public void capture() {
         super.capture();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the department: ");
+        System.out.print("Enter the department: ");
         department = sc.nextLine();
-        System.out.println("Enter the position: ");
+        System.out.print("Enter the position: ");
         position = sc.nextLine();
-        System.out.println("Enter the salary: ");
+        System.out.print("Enter the salary: ");
         salary = sc.nextLine();
-        System.out.println("Enter the status: ");
+        System.out.print("Enter the status: ");
         status = sc.nextLine();
-        System.out.println("Enter the RFC: ");
+        System.out.print("Enter the RFC: ");
         rfc = sc.nextLine();
         sc.close();
     }
-    
+
     // Generates the username and password
     @Override
     public String genUsername() {
@@ -114,5 +114,5 @@ public class Employee extends Person {
     public void setRfc(String rfc) {
         this.rfc = rfc;
     }
-   
+
 }

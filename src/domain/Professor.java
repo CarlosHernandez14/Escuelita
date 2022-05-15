@@ -31,11 +31,11 @@ public class Professor extends Employee {
         super.capture();
         boolean end = false;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the degree: ");
+        System.out.print("Enter the degree: ");
         degree = sc.nextLine();
         System.out.println("SUBJECTS THAT TEACH - Type 'end' to finish");
         do {
-            System.out.println("Enter the subject: ");
+            System.out.print("Enter the subject: ");
             String subject = sc.nextLine();
             if (subject.equalsIgnoreCase("end"))
                 end = true;
@@ -44,7 +44,7 @@ public class Professor extends Employee {
             else
                 this.subjects.add(subject);
         } while (end == false);
-        
+
         sc.close();
     }
 

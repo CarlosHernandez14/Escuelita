@@ -1,6 +1,6 @@
 package domain;
 import java.util.*;
-import java.text.SimpleDateFormat; 
+import java.text.SimpleDateFormat;
 
 public class Student  extends Person {
     private final String numControl;
@@ -10,7 +10,7 @@ public class Student  extends Person {
     private int semester;
     private double grade;
     private boolean status;
-   
+
     // Constructor's
     public Student() {
         super();
@@ -44,17 +44,17 @@ public class Student  extends Person {
     public void capture(){
         super.capture();
         try (Scanner sc = new Scanner(System.in)) {
-			System.out.println("Enter the career: ");
+			System.out.print("Enter the career: ");
 			career = sc.nextLine();
-			System.out.println("Enter the semester: ");
+			System.out.print("Enter the semester: ");
 			semester = sc.nextInt();
-			System.out.println("Enter the grade: ");
+			System.out.print("Enter the grade: ");
 			grade = sc.nextDouble();
-			System.out.println("Enter the status: ");
+			System.out.print("Enter the status: ");
 			status = sc.nextBoolean();
 		}
     }
-    
+
     // Generate a random number for the student's numControl of 8 digits
     private String genNumControl() {
         Date date = new Date();
