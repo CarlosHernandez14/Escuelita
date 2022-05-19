@@ -16,7 +16,7 @@ public class Professor extends Employee {
         super(name, address, phone, email, ein, department, position, salary, status, curp, rfc);
         this.degree = degree;
         this.subjects = subjects;
-    }
+    } 
 
     // Show and capture methods
     @Override
