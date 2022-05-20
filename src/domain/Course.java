@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.*;
 import java.util.Scanner;
 
-
 public class Course {
     private String courseName;
     private ArrayList<String> subjects;

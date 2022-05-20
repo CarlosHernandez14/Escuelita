@@ -65,9 +65,9 @@ public abstract class Person {
         System.out.println("Enter the year: ");
         int year = sc.nextInt();
         sc.close();
-        return new Date(year - 1900, month - 1, day);
+        return new Date(1900,1, 5);
     }
-
+    
     // Getters and setters
     public String getfullName() {
         return fullName;

@@ -11,7 +11,7 @@ public class App {
         SimpleDateFormat df = new SimpleDateFormat("dd 'de' MMMM, yyyy");
         System.out.println(df.format(fecha));
 
-        int opcion = 0, opcion2 = 0;
+        int opcion = 0, opcion2 = 0, opcion3 = 0;
         do{
             opcion = mostrarMenu();
             switch(opcion){
