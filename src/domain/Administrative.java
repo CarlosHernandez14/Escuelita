@@ -31,7 +31,7 @@ public class Administrative extends Employee {
     public void capture() {
         super.capture();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the plaza: ");
+        System.out.print("Enter the plaza: ");
         plaza = sc.nextLine();
         sc.close();
     }

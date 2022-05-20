@@ -21,7 +21,7 @@ public class Janitor extends Employee {
     public void setCleanArea(String cleanArea) {
         this.cleanArea = cleanArea;
     }
-    
+
     // Show the information of the Janitor
     @Override
     public void show() {
@@ -34,7 +34,7 @@ public class Janitor extends Employee {
     public void capture() {
         super.capture();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the clean area: ");
+        System.out.print("Enter the clean area: ");
         cleanArea = sc.nextLine();
         sc.close();
     }

@@ -1,12 +1,20 @@
 package tests;
 
+<<<<<<< HEAD
 import domain.Course;
 
 import java.text.SimpleDateFormat;
+=======
+>>>>>>> 6ea096cf37b07e6b5b793173194325326d9e96e9
 import java.util.*;
+
+
+import domain.Course;
+import domain.Professor;
 
 public class MethodTests {
     public static void main(String[] args) {
+<<<<<<< HEAD
         // Generate a random date
 //        Random rand = new Random();
 //        int day = rand.nextInt(30) + 1;
@@ -18,6 +26,11 @@ public class MethodTests {
 //        System.out.println(df.format(date));
 
         Course db = new Course();
+=======
+        // Test class course
+        
+        
+>>>>>>> 6ea096cf37b07e6b5b793173194325326d9e96e9
 
     }
 }

@@ -13,7 +13,8 @@ public class Course {
     public Course() {
     }
 
-    public Course(ArrayList<String> subjects, ArrayList<Professor> prospectProfessors) {
+    public Course(String courseName, ArrayList<String> subjects, ArrayList<Professor> prospectProfessors) {
+        this.courseName = courseName;
         this.subjects = subjects;
         this.prospectProfessors = prospectProfessors;
         createCurrentProfessors();
@@ -25,22 +26,25 @@ public class Course {
 
     public void assingProfessors() {
         boolean end = false;
-        Professor[] professors = new Professor[3];
         Scanner sc = new Scanner(System.in);
         System.out.println("<<<<<ASIGNING MENU>>>>>");
         do {
-            System.out.println("Subject name: ");
+            System.out.println("-->>>Subject name: ");
             String sname = sc.nextLine();
             if (subjects.contains(sname)) {
-                for (int i = 0; i < professors.length;) {
-                    System.out.print("Professor name: ");
-                    Professor p = getSingleProfessor(sc.nextLine());
+                for (int i = 0; i < 3;) {
+                    for(int j = 0; j < prospectProfessors.size(); j++) {
+                        System.out.println(j + ".- " + prospectProfessors.get(j).getfullName());
+                    }
+                    System.out.println("Select a professor: ");
+                    int pSelected = Integer.parseInt(sc.nextLine());
+                    Professor p = prospectProfessors.get(pSelected);
                     if (p != null) {
-                        professors[i++] = p;
+                        currentProfessors.get(sname)[i++] = p;
+                        //prospectProfessors.remove(p);
                     }else
                         System.out.println("Professor not found");
                 }
-                currentProfessors.put(sname, professors);
             } else {
                 System.out.println("The subject does not exist");
             }
@@ -54,15 +58,15 @@ public class Course {
     }
 
     private void createCurrentProfessors() {
+        // Crea un mapa de materias y array vacio de profesores para asignar
         currentProfessors = new HashMap<>();
-        Professor[] cProfessors = new Professor[3];
         for (int i = 0; i < subjects.size(); i++) {
-            currentProfessors.put(subjects.get(i), cProfessors);
+            currentProfessors.put(subjects.get(i), new Professor[3]); // Agrega las materias como keys, y un arrray de 3 profesores como value
         }
-        
+
     }
 
-    private Professor getSingleProfessor(String pname) {
+    public Professor getSingleProfessor(String pname) {
         boolean isProfessor = false;
         Professor professor = null;
         for (Professor professor1 : prospectProfessors) {
@@ -79,10 +83,21 @@ public class Course {
 
     // Show and capture methods
     public void show() {
-        System.out.println("<<<<SUBJECTS>>>>");
+        System.out.println("Course name: " + courseName);
+        System.out.println("<<<<SUBJECTS - STUDY PLAN>>>>");
         subjects.forEach(System.out::println);
-        System.out.println("<<<<PROSPECT PROFESSORS>>>>");
-        prospectProfessors.forEach(System.out::println);
+        System.out.println("<<<<CURRENT PROFESSORS>>>>");
+        currentProfessors.forEach((k, v) -> {
+            System.out.println("Subject: " + k);
+            for (Professor p : v) {
+                if (p != null) {
+                    System.out.println("Professor: " + p.getfullName());
+                } else {
+                    System.out.println("Professor not assigned");
+                }
+            }
+            System.out.println("------------------------");
+        });
     }
 
     public void capture() {
@@ -90,7 +105,7 @@ public class Course {
         Scanner sc = new Scanner(System.in);
         System.out.println("ENTER THE SUBJECTS COURSE - Type 'end' to finish");
         do {
-            System.out.println("Enter the subject: ");
+            System.out.print("Enter the subject: ");
             String subject = sc.nextLine();
             if (subject.equalsIgnoreCase("end"))
                 end = true;

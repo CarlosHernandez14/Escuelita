@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class Employee extends Person {
-    private final String ein;
+    private String ein;
     private String department;
     private String position;
     private String salary;
@@ -13,7 +13,6 @@ public class Employee extends Person {
 
     // Constructor
     public Employee() {
-        this.ein = genEin();
     }
 
     public Employee(String name, String address, String phone, String email, String ein, String department, String position, String salary, String status, String curp, String rfc) {
@@ -41,27 +40,27 @@ public class Employee extends Person {
     public void capture() {
         super.capture();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the department: ");
+        System.out.print("Enter the department: ");
         department = sc.nextLine();
-        System.out.println("Enter the position: ");
+        System.out.print("Enter the position: ");
         position = sc.nextLine();
-        System.out.println("Enter the salary: ");
+        System.out.print("Enter the salary: ");
         salary = sc.nextLine();
-        System.out.println("Enter the status: ");
+        System.out.print("Enter the status: ");
         status = sc.nextLine();
-        System.out.println("Enter the RFC: ");
+        System.out.print("Enter the RFC: ");
         rfc = sc.nextLine();
         sc.close();
     }
-    
+
     // Generates the username and password
     @Override
-    protected String genUsername() {
+    public String genUsername() {
         return this.fullName.toLowerCase().substring(0,2) + this.ein;
     }
 
     @Override
-    protected String genPassword() {
+    public String genPassword() {
         return this.ein + this.department.substring(0,3);
     }
 
@@ -115,5 +114,5 @@ public class Employee extends Person {
     public void setRfc(String rfc) {
         this.rfc = rfc;
     }
-   
+
 }
