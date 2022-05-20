@@ -14,7 +14,7 @@ public class Platform {
     private String phone;
     private String email;
     private ArrayList<Course> courses;
-    private Map<String, String> studentsMindBox;  
+    private Map<String, String> studentsMindBox;
     private Map<String, String> teachersMindBox;
 
     // Constructor
@@ -48,13 +48,13 @@ public class Platform {
     // Capture all information
     public void capture() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the institute: ");
+        System.out.print("Enter the institute: ");
         institute = sc.nextLine();
-        System.out.println("Enter the address: ");
+        System.out.print("Enter the address: ");
         address = sc.nextLine();
-        System.out.println("Enter the phone: ");
+        System.out.print("Enter the phone: ");
         phone = sc.nextLine();
-        System.out.println("Enter the email: ");
+        System.out.print("Enter the email: ");
         email = sc.nextLine();
         sc.close();
     }
@@ -62,9 +62,9 @@ public class Platform {
     // LOGIN
     public void login() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the username: ");
+        System.out.print("Enter the username: ");
         String username = sc.nextLine();
-        System.out.println("Enter the password: ");
+        System.out.print("Enter the password: ");
         String password = sc.nextLine();
 
         if (studentsMindBox.containsKey(username)) {
@@ -79,7 +79,7 @@ public class Platform {
             if (teachersMindBox.get(username).equals(password)) {
                 System.out.println("Welcome, " + username);
                 // TODO: Show the teacher's courses
-                
+
             } else {
                 System.out.println("Wrong password");
             }
@@ -95,7 +95,7 @@ public class Platform {
         String ans = "";
         ArrayList<String> subjects = new ArrayList<String>();
         ArrayList<Professor> prospectTeachers = new ArrayList<Professor>();
-        
+
         System.out.println("=======Registering a new course======");
         System.out.print("Enter the course name: ");
         String courseName = course.getCourseName();
@@ -181,7 +181,7 @@ public class Platform {
     public void setCourses(ArrayList<Course> courses) {
         this.courses = courses;
     }
-    
+
     public Map<String, String> getStudentsMindBox() {
         return studentsMindBox;
     }
