@@ -10,9 +10,9 @@ public class Book extends Product {
     public Book() {
     }
 
-    public Book(String name, String author, String description, String isbn, String publisher, String language, String genre) {
+    public Book(String name, String author, String description,String publisher, String language, String genre) {
         super(name, author, description, language);
-        this.isbn = isbn;
+        generateIsbn();
         this.publisher = publisher;
         this.genre = genre;
     }
@@ -37,6 +37,15 @@ public class Book extends Product {
         System.out.print("Enter the genre: ");
         genre = sc.nextLine();
         sc.close();
+    }
+
+    // Generate isbn
+    private void generateIsbn() {
+        String isbn = "";
+        for (int i = 0; i < 10; i++) {
+            isbn += (int) (Math.random() * 10);
+        }
+        this.isbn = isbn;
     }
 
     // Getters and setters

@@ -15,7 +15,9 @@ public class Platform {
     private String email;
     private ArrayList<Course> courses;
     private Map<String, String> studentsMindBox;
+    private ArrayList<Student> studentsRegistered;
     private Map<String, String> teachersMindBox;
+    private ArrayList<Professor> teachersRegistered;
 
     // Constructor
     public Platform(String institute, String address, String phone, String email) {
@@ -128,6 +130,7 @@ public class Platform {
         Scanner sc = new Scanner(System.in);
         Student newStudent = new Student();
         newStudent.capture();
+        this.studentsRegistered.add(newStudent);
         this.studentsMindBox.put(newStudent.genUsername(), newStudent.genPassword());
         sc.close();
     }
@@ -137,8 +140,19 @@ public class Platform {
         Scanner sc = new Scanner(System.in);
         Professor newProfessor = new Professor();
         newProfessor.capture();
+        this.teachersRegistered.add(newProfessor);
         this.teachersMindBox.put(newProfessor.genUsername(), newProfessor.genPassword());
         sc.close();
+    }
+
+    // Verify if the student is registered and return the student
+    public Student verifyStudent(String name) {
+        for (Student student : studentsRegistered) {
+            if (student.getfullName().equalsIgnoreCase(name)) {
+                return student;
+            }
+        }
+        return null;
     }
 
     // Getters and Setters
