@@ -1,36 +1,22 @@
 package tests;
-
-<<<<<<< HEAD
+import Platform.Platform;
 import domain.Course;
-
 import java.text.SimpleDateFormat;
-=======
->>>>>>> 6ea096cf37b07e6b5b793173194325326d9e96e9
 import java.util.*;
-
-
-import domain.Course;
 import domain.Professor;
+import domain.Student;
 
 public class MethodTests {
     public static void main(String[] args) {
-<<<<<<< HEAD
-        // Generate a random date
-//        Random rand = new Random();
-//        int day = rand.nextInt(30) + 1;
-//        int month = rand.nextInt(12) + 1;
-//        int year = rand.nextInt(100) + 1900;
-//        Date date = new Date(2003 - 1900, 5 - 1, 30);
-        // Date format with just de month
-//        SimpleDateFormat df = new SimpleDateFormat("MMMM");
-//        System.out.println(df.format(date));
+        Platform tecnm = new Platform("Tecnologico de Morelia", "Avenida Tecnológico 1500", "443 312 1570", "morelia.tecnm@outlook.com");
+        Student student = new Student("Octavio Peña vazquez", "Loma feliz", "44334535", "Octaviogta@gmail.com", "Sistemas", 2, 3, true, "PEVO030416HMNXZCA2");
 
-        Course db = new Course();
-=======
-        // Test class course
-        
-        
->>>>>>> 6ea096cf37b07e6b5b793173194325326d9e96e9
+        tecnm.registerStudent(student);
+        tecnm.getStudentsMindBox();
+        tecnm.login();
+
+
+
 
     }
 }
