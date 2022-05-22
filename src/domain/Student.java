@@ -32,7 +32,7 @@ public class Student  extends Person {
     @Override
     public void show(){
         super.show();
-        System.out.println("Numero de control: " + numControl);
+        System.out.println("Control Number: " + numControl);
         System.out.println("Carrera: " + career);
         System.out.println("Semestre: " + semester);
         System.out.println("Calificacion: " + grade);
@@ -50,7 +50,7 @@ public class Student  extends Person {
 			semester = sc.nextInt();
 			System.out.print("Enter the grade: ");
 			grade = sc.nextDouble();
-			System.out.print("Enter the status: ");
+			System.out.print("Enter the status (True - Current Student, False - Student Dropped Out): ");
 			status = sc.nextBoolean();
 		}
     }

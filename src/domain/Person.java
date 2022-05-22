@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public abstract class Person {
+    private Scanner sc = new Scanner(System.in);
     protected String fullName;
     protected String address;
     protected String phone;
@@ -40,7 +41,6 @@ public abstract class Person {
 
     // Capture the people information
     protected void capture() {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Enter the fullName: ");
         fullName = sc.nextLine();
         System.out.print("Enter the address: ");
@@ -52,20 +52,18 @@ public abstract class Person {
         birthDate = captureBirthDate();
         System.out.print("Enter the CURP: ");
         curp = sc.nextLine();
-        sc.close();
     }
 
-    public Date captureBirthDate() {
-        Scanner sc = new Scanner(System.in);
+    private Date captureBirthDate() {
         System.out.println("Enter the birth date");
         System.out.print("Enter the day: ");
-        int day = sc.nextInt();
+        int day = Integer.parseInt(sc.nextLine());
         System.out.print("Enter the month: ");
-        int month = sc.nextInt();
+        int month = Integer.parseInt(sc.nextLine());
         System.out.print("Enter the year: ");
-        int year = sc.nextInt();
-        sc.close();
-        return new Date(1900,1, 5);
+        int year = Integer.parseInt(sc.nextLine());
+        // Return the date based on the information
+        return new Date(year - 1900, month - 1, day);
     }
     
     // Getters and setters
