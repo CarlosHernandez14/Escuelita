@@ -3,6 +3,7 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 
 public class Student  extends Person {
+    Scanner sc = new Scanner(System.in);
     private final String numControl;
     private String userName;
     private String password;
@@ -43,16 +44,20 @@ public class Student  extends Person {
     @Override
     public void capture(){
         super.capture();
-        try (Scanner sc = new Scanner(System.in)) {
+        try {
+            password = genPassword();
+            userName = genUsername();
 			System.out.print("Enter the career: ");
 			career = sc.nextLine();
 			System.out.print("Enter the semester: ");
-			semester = sc.nextInt();
-			System.out.print("Enter the grade: ");
-			grade = sc.nextDouble();
+			semester = Integer.parseInt(sc.nextLine());
+			System.out.print("High school grade: ");
+			grade = Double.parseDouble(sc.nextLine());
 			System.out.print("Enter the status (True - Current Student, False - Student Dropped Out): ");
 			status = sc.nextBoolean();
-		}
+		} catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     // Generate a random number for the student's numControl of 8 digits
@@ -62,7 +67,7 @@ public class Student  extends Person {
         return (df.format(date)) + String.valueOf(Math.random()).substring(2, 5);
     }
 
-    // Generate a username for the student
+     //Generate a username for the student
     @Override
     public String genUsername() {
         String fullName = this.fullName.toLowerCase();
@@ -114,5 +119,22 @@ public class Student  extends Person {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 
 }

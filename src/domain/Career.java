@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.*;
 import java.util.Scanner;
 
-public class Course {
+public class Career {
     private String courseName;
     private ArrayList<String> subjects;
     private ArrayList<Professor> prospectProfessors;
     private Map<String, Professor[]> currentProfessors;
 
-    public Course() {
+    public Career() {
     }
 
-    public Course(String courseName, ArrayList<String> subjects, ArrayList<Professor> prospectProfessors) {
+    public Career(String courseName, ArrayList<String> subjects, ArrayList<Professor> prospectProfessors) {
         this.courseName = courseName;
         this.subjects = subjects;
         this.prospectProfessors = prospectProfessors;
@@ -41,6 +41,7 @@ public class Course {
                     Professor p = prospectProfessors.get(pSelected);
                     if (p != null) {
                         currentProfessors.get(sname)[i++] = p;
+                        prospectProfessors.get(i).addSubject(sname);
                         //prospectProfessors.remove(p);
                     }else
                         System.out.println("Professor not found");

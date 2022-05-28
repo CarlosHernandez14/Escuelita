@@ -11,6 +11,7 @@ public abstract class Person {
     protected String email;
     protected Date birthDate;
     protected String curp;
+
     // Constructor's
     public Person(){
 
@@ -65,7 +66,7 @@ public abstract class Person {
         // Return the date based on the information
         return new Date(year - 1900, month - 1, day);
     }
-    
+
     // Getters and setters
     public String getfullName() {
         return fullName;

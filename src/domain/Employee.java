@@ -50,7 +50,6 @@ public class Employee extends Person {
         status = sc.nextLine();
         System.out.print("Enter the RFC: ");
         rfc = sc.nextLine();
-        sc.close();
     }
 
     // Generates the username and password
